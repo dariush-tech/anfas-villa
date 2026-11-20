@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Cinematic scroll story for ANFAS villas, Dubai: a villa built from the first line to the finished home, with a finish studio, interior tabs and a project estimator.">
+<meta name="theme-color" content="#0e0d0b">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ANFAS Villas &amp; Interiors">
+<meta property="og:description" content="Cinematic scroll story for ANFAS villas, Dubai: a villa built from the first line to the finished home, with a finish studio, interior tabs and a project estimator.">
+<meta property="og:url" content="https://dariush-tech.github.io/anfas-villa/">
+<meta property="og:image" content="https://dariush-tech.github.io/anfas-villa/img/villa.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="img/emblem.png">
+<link rel="canonical" href="https://dariush-tech.github.io/anfas-villa/">
+<title>ANFAS Villas &amp; Interiors</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@300;400;500&family=Pinyon+Script&display=swap">
+<style>
+/* Layout: full-bleed film stages; titles set low and left like film credits; tools float on glass over the image. */
+:root {
+  --night: #0e0d0b;
+  --cream: #f6f1e8;
+  --mist: rgba(246, 241, 232, 0.78);
+  --hair: rgba(246, 241, 232, 0.22);
+  --glass: rgba(18, 15, 11, 0.46);
+  --gold: #cfa962;
+  --gold-deep: #8f6c33;
+  --stone: #e9e1d3;
+  --stone-2: #ddd2bf;
+  --ink: #1d1813;
+  --ink-soft: #5f5446;
+  --display: "Cormorant Garamond", "Cormorant", Garamond, "Times New Roman", serif;
+  --body: "Jost", "Helvetica Neue", Arial, sans-serif;
+  --script: "Pinyon Script", "Snell Roundhand", "Apple Chancery", cursive;
+  --gutter-l: max(16px, env(safe-area-inset-left, 0px));
+  --gutter-r: max(16px, env(safe-area-inset-right, 0px));
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; background: var(--night); color: var(--cream);
+  font-family: var(--body); font-weight: 300; font-size: 16px; line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+body::before {
+  content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px);
+  z-index: 60; background: var(--night);
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
+em { font-style: italic; color: var(--gold); }
+.eyebrow {
+  font-family: var(--body); font-size: 0.72rem; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase; color: var(--mist); margin: 0;
+}
+h1, h2 { font-family: var(--display); font-weight: 300; line-height: 1.02; margin: 0; text-wrap: balance; letter-spacing: -0.01em; }
+
+/* ---------- header ---------- */
+.site-head {
+  position: fixed; top: env(safe-area-inset-top, 0px); left: 0; right: 0; z-index: 50;
+  padding-left: var(--gutter-l); padding-right: var(--gutter-r); padding-block: 14px;
+  display: flex; align-items: center; gap: 24px;
+  background: linear-gradient(to bottom, rgba(10, 9, 7, 0.55), rgba(10, 9, 7, 0));
+  transition: background 0.4s ease, backdrop-filter 0.4s ease;
+}
+.site-head.solid { background: rgba(14, 13, 11, 0.72); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; margin-right: auto; }
+.brand img { height: 30px; width: auto; }
+.brand b { font-family: var(--display); font-weight: 500; font-size: 1.45rem; letter-spacing: 0.14em; }
+.site-head nav { display: flex; gap: 26px; }
+.site-head nav a { text-decoration: none; font-size: 0.82rem; letter-spacing: 0.06em; color: var(--mist); }
+.site-head nav a:hover { color: var(--cream); }
+.pill {
+  display: inline-flex; align-items: center; gap: 8px; text-decoration: none; cursor: pointer;
+  border: 1px solid var(--hair); border-radius: 999px; padding: 9px 18px;
+  font: 400 0.82rem/1 var(--body); letter-spacing: 0.04em; color: var(--cream);
+  background: rgba(246, 241, 232, 0.08); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+}
+.pill:hover { background: rgba(246, 241, 232, 0.18); }
+.pill.gold { background: var(--gold); color: #1b150c; border-color: var(--gold); font-weight: 500; }
+.pill.gold:hover { background: #dcb977; }
+
+/* ---------- shared full-bleed stage ---------- */
+.frame { position: relative; overflow: hidden; background: var(--night); }
+.frame .bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 42% 50%; }
+.scrim { position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(to top, rgba(10, 9, 7, 0.82) 0%, rgba(10, 9, 7, 0.35) 38%, rgba(10, 9, 7, 0) 62%),
+              linear-gradient(to right, rgba(10, 9, 7, 0.45), rgba(10, 9, 7, 0) 55%); }
+.inner { position: relative; padding-left: var(--gutter-l); padding-right: var(--gutter-r); max-width: 1440px; margin: 0 auto; }
+
+/* ---------- hero ---------- */
+.hero { min-height: 100svh; display: flex; align-items: flex-end; }
+.hero .bg { animation: drift 24s ease-in-out infinite alternate; }
+@keyframes drift { from { transform: scale(1.02); } to { transform: scale(1.08) translate(-1%, -1%); } }
+.hero .inner { width: 100%; padding-block: 0 9vh; display: grid; gap: 22px; }
+.hero h1 { font-size: clamp(2.6rem, 6.4vw, 6rem); max-width: 14ch; }
+.hero h1 .script { font-family: var(--script); font-weight: 400; color: var(--gold); font-size: 1.12em; line-height: 0.9; display: inline-block; padding-right: 0.08em; }
+.hero p.lede { max-width: 46ch; color: var(--mist); margin: 0; font-size: 1.02rem; }
+.hero .cue { display: flex; align-items: center; gap: 12px; font-size: 0.76rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mist); }
+.hero .cue::before { content: ""; width: 44px; height: 1px; background: var(--gold); }
+
+/* ---------- the build (scroll-scrubbed) ---------- */
+.build { position: relative; height: 760svh; background: var(--night); }
+.build .stage { position: sticky; top: 0; height: 100svh; overflow: hidden; }
+.build .layers { position: absolute; inset: 0; transform-origin: 46% 55%; will-change: transform; }
+.build .layer { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 42% 50%; opacity: 0; }
+.build .layer[data-i="0"] { opacity: 1; }
+.build .outline { opacity: 0; mix-blend-mode: screen; }
+.build .cap {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding-left: var(--gutter-l); padding-right: var(--gutter-r); padding-block: 0 11vh;
+  max-width: 1440px; margin: 0 auto; display: grid; gap: 14px; opacity: 0; pointer-events: none;
+}
+.build .cap[data-i="0"] { opacity: 1; }
+.build .cap h2 { font-size: clamp(2.3rem, 5.6vw, 5rem); max-width: 13ch; }
+.build .cap p:not(.eyebrow) { margin: 0; max-width: 44ch; color: var(--mist); }
+.rail {
+  position: absolute; right: var(--gutter-r); top: 50%; transform: translateY(-50%);
+  list-style: none; margin: 0; padding: 0 0 0 0; display: grid; gap: 12px; counter-reset: s;
+}
+.rail li { display: flex; align-items: center; justify-content: flex-end; gap: 12px;
+  font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(246, 241, 232, 0.42); transition: color 0.3s; }
+.rail li::after { content: ""; width: 18px; height: 1px; background: currentColor; transition: width 0.3s; }
+.rail li.on { color: var(--cream); }
+.rail li.on::after { width: 40px; background: var(--gold); }
+
+/* ---------- design studio ---------- */
+.studio { min-height: 100svh; display: flex; align-items: flex-end; }
+.studio .bg { opacity: 0; transition: opacity 0.9s ease; }
+.studio .bg.on { opacity: 1; }
+.studio .scrim { background: linear-gradient(to right, rgba(10, 9, 7, 0.55), rgba(10, 9, 7, 0) 50%), linear-gradient(to top, rgba(10, 9, 7, 0.55), rgba(10, 9, 7, 0) 40%); }
+.studio .inner { width: 100%; padding-block: 0 7vh; }
+.panel {
+  width: min(420px, 100%); padding: 26px 26px 22px; border-radius: 18px;
+  background: var(--glass); border: 1px solid var(--hair);
+  backdrop-filter: blur(18px) saturate(1.1); -webkit-backdrop-filter: blur(18px) saturate(1.1);
+  display: grid; gap: 16px;
+}
+.panel h2 { font-size: clamp(2rem, 3.6vw, 2.9rem); }
+.finishes { border: 0; margin: 0; padding: 0; display: grid; gap: 6px; }
+.finishes legend { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.finish { display: flex; align-items: center; gap: 12px; padding: 9px 12px; border-radius: 12px; cursor: pointer; border: 1px solid transparent; transition: background 0.25s, border-color 0.25s; }
+.finish:hover { background: rgba(246, 241, 232, 0.08); }
+.finish input { position: absolute; opacity: 0; pointer-events: none; }
+.finish:has(input:checked) { background: rgba(246, 241, 232, 0.14); border-color: var(--hair); }
+.finish:has(input:focus-visible) { outline: 2px solid var(--gold); outline-offset: 2px; }
+.sw { width: 26px; height: 26px; border-radius: 50%; flex: none; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+  background: conic-gradient(var(--a) 0 62%, var(--b) 62% 100%); }
+.finish span { display: grid; line-height: 1.25; }
+.finish b { font-weight: 400; font-size: 0.95rem; }
+.finish small { color: var(--mist); font-size: 0.76rem; }
+.panel .note { margin: 0; font-size: 0.8rem; color: var(--mist); }
+
+/* ---------- inside ---------- */
+.inside { min-height: 100svh; display: flex; align-items: flex-end; }
+.inside .bg { opacity: 0; transition: opacity 1s ease; }
+.inside .bg.on { opacity: 1; }
+.inside .inner { width: 100%; padding-block: 0 8vh; display: grid; gap: 18px; }
+.inside h2 { font-size: clamp(2.4rem, 5.6vw, 5rem); max-width: 12ch; }
+.tabs { display: flex; flex-wrap: wrap; gap: 8px; }
+.tabs button { font: 400 0.84rem/1 var(--body); letter-spacing: 0.04em; color: var(--cream); cursor: pointer;
+  padding: 10px 16px; border-radius: 999px; border: 1px solid var(--hair); background: rgba(14, 13, 11, 0.35);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+.tabs button[aria-pressed="true"] { background: var(--cream); color: var(--ink); border-color: var(--cream); }
+.inside .room-note { margin: 0; max-width: 46ch; color: var(--mist); min-height: 3.2em; }
+
+/* ---------- estimate (light) ---------- */
+.estimate { background: var(--stone); color: var(--ink); }
+.estimate .inner { padding-block: clamp(72px, 12vh, 140px); display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
+.estimate .eyebrow { color: var(--ink-soft); }
+.estimate h2 { font-size: clamp(2.6rem, 5.8vw, 5.4rem); margin-top: 14px; }
+.estimate em { color: var(--gold-deep); }
+.controls { display: grid; gap: 28px; margin-top: 38px; }
+.field { display: grid; gap: 10px; min-width: 0; }
+.field > span, .seg legend { font-size: 0.74rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); padding: 0; }
+.seg { border: 0; margin: 0; padding: 0; display: grid; gap: 10px; min-width: 0; }
+.seg .opts { display: flex; flex-wrap: wrap; gap: 6px; }
+.seg label { cursor: pointer; }
+.seg input { position: absolute; opacity: 0; pointer-events: none; }
+.seg label span { display: inline-block; padding: 10px 16px; border-radius: 999px; border: 1px solid rgba(29, 24, 19, 0.22); font-size: 0.88rem; transition: background 0.2s, color 0.2s; }
+.seg input:checked + span { background: var(--ink); color: var(--stone); border-color: var(--ink); }
+.seg input:focus-visible + span { outline: 2px solid var(--gold-deep); outline-offset: 2px; }
+.area-row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.area-row output { font-family: var(--display); font-size: 1.7rem; font-variant-numeric: tabular-nums; }
+.area-row small { color: var(--ink-soft); font-size: 0.85rem; }
+input[type="range"] { -webkit-appearance: none; appearance: none; width: 100%; height: 2px; background: rgba(29, 24, 19, 0.2); outline-offset: 8px; }
+input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 22px; height: 22px; border-radius: 50%; background: var(--gold-deep); border: 4px solid var(--stone); box-shadow: 0 0 0 1px var(--gold-deep); cursor: pointer; }
+input[type="range"]::-moz-range-thumb { width: 16px; height: 16px; border-radius: 50%; background: var(--gold-deep); border: 4px solid var(--stone); box-shadow: 0 0 0 1px var(--gold-deep); cursor: pointer; }
+.result { display: grid; gap: 30px; padding-top: 6px; }
+.result .big { font-family: var(--display); font-weight: 400; font-size: clamp(2.6rem, 5.4vw, 4.6rem); line-height: 1; font-variant-numeric: tabular-nums; margin-top: 10px; }
+.result .mid { font-family: var(--display); font-size: clamp(1.6rem, 2.6vw, 2.2rem); line-height: 1; margin-top: 8px; font-variant-numeric: tabular-nums; }
+.bars { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 12px; }
+.bars li { display: grid; grid-template-columns: minmax(0, 9.5em) minmax(0, 1fr) 3.2em; align-items: center; gap: 14px; font-size: 0.88rem; }
+.bars .track { height: 3px; background: rgba(29, 24, 19, 0.12); border-radius: 3px; overflow: hidden; }
+.bars .fill { height: 100%; background: var(--gold-deep); border-radius: 3px; transition: width 0.5s ease; }
+.bars .pct { text-align: right; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+.fine { margin: 0; font-size: 0.8rem; color: var(--ink-soft); max-width: 44ch; }
+
+/* ---------- contact ---------- */
+.contact { min-height: 100svh; display: flex; align-items: center; text-align: center; }
+.contact .scrim { background: radial-gradient(ellipse at 50% 55%, rgba(10, 9, 7, 0.55), rgba(10, 9, 7, 0.15) 70%), linear-gradient(to top, rgba(10, 9, 7, 0.7), rgba(10, 9, 7, 0) 45%); }
+.contact .inner { width: 100%; display: grid; justify-items: center; gap: 20px; padding-block: 18vh; }
+.contact .script { font-family: var(--script); color: var(--gold); font-size: clamp(3.6rem, 9vw, 7.5rem); line-height: 0.9; margin: 0; font-weight: 400; }
+.contact h2 { font-size: clamp(2rem, 4.6vw, 3.9rem); max-width: 18ch; }
+.contact .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 10px; }
+.phone { display: inline-flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: center; color: var(--mist); font-size: 0.95rem; }
+.phone .num { font-family: var(--display); font-size: 1.5rem; color: var(--cream); user-select: all; font-variant-numeric: tabular-nums; letter-spacing: 0.02em; }
+.phone button { font: 400 0.78rem/1 var(--body); color: var(--cream); background: none; border: 1px solid var(--hair); border-radius: 999px; padding: 7px 12px; cursor: pointer; }
+
+/* ---------- footer ---------- */
+.foot { background: var(--night); border-top: 1px solid rgba(246, 241, 232, 0.08); }
+.foot .inner { padding-block: 44px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; }
+.foot img { height: 74px; width: auto; }
+.foot p { margin: 0; color: var(--mist); font-size: 0.82rem; }
+
+/* ---------- small screens ---------- */
+@media (max-width: 860px) {
+  .site-head nav { display: none; }
+  .site-head .pill { padding: 8px 14px; font-size: 0.76rem; }
+  .rail { display: none; }
+  .estimate .inner { grid-template-columns: minmax(0, 1fr); }
+  .frame .bg, .build .layer { object-position: 46% 50%; }
+  .panel { padding: 20px 18px 16px; }
+  .finishes { grid-template-columns: 1fr 1fr; }
+  .finish { padding: 8px; gap: 9px; }
+  .finish small { display: none; }
+  .bars li { grid-template-columns: minmax(0, 7.5em) minmax(0, 1fr) 3em; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hero .bg { animation: none; }
+  .studio .bg, .inside .bg { transition: none; }
+}
+</style>
+</head>
+<body>
+<header class="site-head" id="head">
+  <a class="brand" href="#top" aria-label="ANFAS home">
+    <img src="img/emblem.png" alt="">
+    <b>ANFAS</b>
+  </a>
+  <nav aria-label="Sections">
+    <a href="#build">The Build</a>
+    <a href="#studio">Design Studio</a>
+    <a href="#inside">Inside</a>
+    <a href="#estimate">Estimate</a>
+  </nav>
+  <a class="pill gold" href="#contact">Start your project</a>
+</header>
+
+<main>
+  <section class="frame hero" id="top">
+    <img class="bg" src="img/villa.jpg" alt="Travertine and bronze villa with an infinity pool at golden hour, Dubai skyline in the distance">
+    <div class="scrim"></div>
+    <div class="inner">
+      <p class="eyebrow">Luxury villas · Interiors · Fit-out &nbsp;—&nbsp; Dubai</p>
+      <h1>Some homes get bought. <span class="script">Some get designed.</span></h1>
+      <p class="lede">ANFAS designs, builds and furnishes villas across Dubai with one team, from the first sketch to the final key.</p>
+      <p class="cue">Scroll to watch it rise</p>
+    </div>
+  </section>
+
+  <section class="build" id="build" aria-label="How an ANFAS villa is built">
+    <div class="stage">
+      <div class="layers" id="layers">
+        <img class="layer" data-i="0" src="img/villa.jpg" alt="">
+        <img class="layer outline" src="img/outline.png" alt="">
+        <img class="layer" data-i="1" src="img/line.jpg" alt="Wireframe drawing of the villa">
+        <img class="layer" data-i="2" src="img/land.jpg" alt="The empty plot before construction">
+        <img class="layer" data-i="3" src="img/ground.jpg" alt="Excavation of the foundations">
+        <img class="layer" data-i="4" src="img/pour.jpg" alt="Night concrete pour of the foundation slab">
+        <img class="layer" data-i="5" src="img/structure.jpg" alt="Concrete frame of the villa with scaffolding">
+        <img class="layer" data-i="6" src="img/facade.jpg" alt="Travertine facade being installed">
+        <img class="layer" data-i="7" src="img/villa.jpg" alt="The finished villa">
+      </div>
+      <div class="scrim"></div>
+
+      <div class="cap" data-i="0"><p class="eyebrow">The Build</p><h2>Every villa starts <em>the same way.</em></h2><p>Keep scrolling. This is how one plot becomes an ANFAS home.</p></div>
+      <div class="cap" data-i="1"><p class="eyebrow">01 · Design</p><h2>It starts as a <em>line.</em></h2><p>Architects and structural engineers draw every wall, window and step in 3D before a single permit is filed.</p></div>
+      <div class="cap" data-i="2"><p class="eyebrow">02 · The plot</p><h2>Then it's just <em>land.</em></h2><p>We survey the site, set out the footprint and prepare the authority and community approvals.</p></div>
+      <div class="cap" data-i="3"><p class="eyebrow">03 · Excavation</p><h2>We break <em>ground.</em></h2><p>Excavation, soil testing and waterproofing come first, because everything above depends on them.</p></div>
+      <div class="cap" data-i="4"><p class="eyebrow">04 · Foundation</p><h2>We pour through the <em>night.</em></h2><p>Large slabs are cast in one continuous pour, timed for the cooler hours.</p></div>
+      <div class="cap" data-i="5"><p class="eyebrow">05 · Structure</p><h2>It stands <em>up.</em></h2><p>The concrete frame rises floor by floor, with every electrical and plumbing route planned into the slabs.</p></div>
+      <div class="cap" data-i="6"><p class="eyebrow">06 · Facade</p><h2>Then we dress it in <em>stone.</em></h2><p>Travertine, bronze and glass go on by hand, matched to the samples you approved.</p></div>
+      <div class="cap" data-i="7"><p class="eyebrow">07 · Handover</p><h2>Same ground. <em>Every detail.</em></h2><p>One team from the first sketch to the final key.</p></div>
+
+      <ol class="rail" id="rail" aria-hidden="true">
+        <li>Vision</li><li>Design</li><li>Plot</li><li>Excavation</li><li>Foundation</li><li>Structure</li><li>Facade</li><li>Handover</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="frame studio" id="studio">
+    <img class="bg on" data-finish="travertine" src="img/villa.jpg" alt="The villa in travertine and bronze">
+    <img class="bg" data-finish="limestone" src="img/finish-limestone.jpg" alt="The villa in white limestone with black bronze frames" loading="lazy">
+    <img class="bg" data-finish="basalt" src="img/finish-basalt.jpg" alt="The villa in charcoal basalt with teak soffits" loading="lazy">
+    <img class="bg" data-finish="sand" src="img/finish-sand.jpg" alt="The villa in sand plaster with oak frames" loading="lazy">
+    <div class="scrim"></div>
+    <div class="inner">
+      <div class="panel">
+        <p class="eyebrow">Design Studio</p>
+        <h2>Try it on <em>before</em> we build it.</h2>
+        <fieldset class="finishes" id="finishes">
+          <legend>Exterior finish</legend>
+          <label class="finish"><input type="radio" name="finish" id="f-trav" value="travertine" checked><i class="sw" style="--a:#cdbb9c;--b:#6b4f2e"></i><span><b>Travertine &amp; bronze</b><small>Honed stone, dark bronze frames</small></span></label>
+          <label class="finish"><input type="radio" name="finish" id="f-lime" value="limestone"><i class="sw" style="--a:#efebe3;--b:#2b2a28"></i><span><b>White limestone</b><small>Crisp joints, black bronze</small></span></label>
+          <label class="finish"><input type="radio" name="finish" id="f-bas" value="basalt"><i class="sw" style="--a:#3b3936;--b:#9a6a3e"></i><span><b>Basalt &amp; teak</b><small>Charcoal stone, teak soffits</small></span></label>
+          <label class="finish"><input type="radio" name="finish" id="f-sand" value="sand"><i class="sw" style="--a:#e3cfac;--b:#b88a55"></i><span><b>Sand plaster &amp; oak</b><small>Soft edges, natural oak</small></span></label>
+        </fieldset>
+        <p class="note">We render your own villa in each finish before anything is ordered.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="frame inside" id="inside">
+    <img class="bg on" data-room="living" src="img/inside-living.jpg" alt="Double-height living room opening onto the pool" loading="lazy">
+    <img class="bg" data-room="majlis" src="img/inside-majlis.jpg" alt="Contemporary majlis with a walnut and bronze screen" loading="lazy">
+    <img class="bg" data-room="suite" src="img/inside-suite.jpg" alt="Master suite with a walnut headboard wall" loading="lazy">
+    <div class="scrim"></div>
+    <div class="inner">
+      <p class="eyebrow">Inside</p>
+      <h2>The view was <em>the whole point.</em></h2>
+      <div class="tabs" role="group" aria-label="Rooms">
+        <button type="button" id="r-living" data-room="living" aria-pressed="true">Living room</button>
+        <button type="button" id="r-majlis" data-room="majlis" aria-pressed="false">Majlis</button>
+        <button type="button" id="r-suite" data-room="suite" aria-pressed="false">Master suite</button>
+      </div>
+      <p class="room-note" id="room-note">A double-height room that opens to the pool, with travertine underfoot and walnut on the walls.</p>
+    </div>
+  </section>
+
+  <section class="estimate" id="estimate">
+    <div class="inner">
+      <div>
+        <p class="eyebrow">Plan your project</p>
+        <h2>What would <em>yours</em> take?</h2>
+        <div class="controls">
+          <fieldset class="seg">
+            <legend>Scope</legend>
+            <div class="opts">
+              <label><input type="radio" name="scope" id="s-design" value="design"><span>Interior design</span></label>
+              <label><input type="radio" name="scope" id="s-fitout" value="fitout"><span>Design + fit-out</span></label>
+              <label><input type="radio" name="scope" id="s-build" value="build" checked><span>Full villa build</span></label>
+            </div>
+          </fieldset>
+          <fieldset class="seg">
+            <legend>Finish level</legend>
+            <div class="opts">
+              <label><input type="radio" name="level" id="l-premium" value="0"><span>Premium</span></label>
+              <label><input type="radio" name="level" id="l-luxury" value="1" checked><span>Luxury</span></label>
+              <label><input type="radio" name="level" id="l-signature" value="2"><span>Signature</span></label>
+            </div>
+          </fieldset>
+          <label class="field" for="area">
+            <span>Built-up area</span>
+            <div class="area-row"><output id="area-out" for="area">6,000 sq ft</output><small id="area-m2">557 m²</small></div>
+            <input type="range" id="area" min="1500" max="15000" step="100" value="6000">
+          </label>
+        </div>
+      </div>
+      <div class="result" aria-live="polite">
+        <div>
+          <p class="eyebrow">Estimated budget</p>
+          <div class="big" id="budget">AED 5.0M – 5.8M</div>
+        </div>
+        <div>
+          <p class="eyebrow">Time to handover</p>
+          <div class="mid" id="months">18 months</div>
+        </div>
+        <div>
+          <p class="eyebrow">Where it goes</p>
+          <ul class="bars" id="bars"></ul>
+        </div>
+        <p class="fine">Indicative range for planning. Your fixed quote follows a free site visit and design brief.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="frame contact" id="contact">
+    <img class="bg" src="img/dusk.jpg" alt="The villa at dusk with the pool lit" loading="lazy">
+    <div class="scrim"></div>
+    <div class="inner">
+      <p class="script">Your turn.</p>
+      <h2>Bring the plot. We'll bring the rest.</h2>
+      <div class="actions">
+        <a class="pill gold" href="https://wa.me/971567932093?text=Hi%20ANFAS%2C%20I%27d%20like%20to%20start%20a%20project" target="_blank" rel="noopener">Chat on WhatsApp</a>
+        <a class="pill" href="https://www.instagram.com/anfas.decor/" target="_blank" rel="noopener">@anfas.decor</a>
+      </div>
+      <div class="phone"><span>Call</span><span class="num" id="num">0971 56 793 2093</span><button type="button" id="copy">Copy</button></div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="inner">
+    <img src="img/lockup.png" alt="ANFAS Mutanasiqa Decoration" loading="lazy">
+    <p>ANFAS Mutanasiqa Decoration L.L.C · Dubai, United Arab Emirates · © 2026</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+  const ease = (x) => x * x * (3 - 2 * x);
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* header turns solid after the hero */
+  const head = document.getElementById("head");
+  const hero = document.getElementById("top");
+
+  /* the build: scroll scrubs through the stages */
+  const build = document.getElementById("build");
+  const layers = [...build.querySelectorAll(".layer[data-i]")];
+  const outline = build.querySelector(".outline");
+  const caps = [...build.querySelectorAll(".cap")];
+  const rail = [...document.querySelectorAll("#rail li")];
+  const wrap = document.getElementById("layers");
+  const N = layers.length;
+
+  let ticking = false;
+  function frame() {
+    ticking = false;
+    head.classList.toggle("solid", hero.getBoundingClientRect().bottom < 80);
+    const r = build.getBoundingClientRect();
+    const total = build.offsetHeight - innerHeight;
+    if (r.bottom < 0 || r.top > innerHeight) return;
+    const p = clamp(-r.top / total, 0, 1);
+    const f = p * (N - 1);                       // 0 .. 7
+    layers.forEach((el, i) => {
+      if (i === 0) return;
+      el.style.opacity = ease(clamp((f - (i - 1) - 0.55) / 0.45, 0, 1));
+    });
+    outline.style.opacity = ease(clamp((f - 0.15) / 0.4, 0, 1)) * (1 - ease(clamp((f - 0.55) / 0.45, 0, 1)));
+    caps.forEach((el, i) => {
+      const d = Math.abs(f - i - 0.15);
+      el.style.opacity = ease(clamp(1 - (d - 0.28) / 0.22, 0, 1));
+      el.style.transform = `translateY(${(f - i - 0.15) * -18}px)`;
+    });
+    const cur = clamp(Math.round(f - 0.15), 0, N - 1);
+    rail.forEach((li, i) => li.classList.toggle("on", i === cur));
+    if (!reduce) wrap.style.transform = `scale(${1.02 + 0.05 * (f - Math.floor(f))})`;
+  }
+  addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }, { passive: true });
+  addEventListener("resize", frame);
+  frame();
+
+  /* design studio: swap the finish */
+  const finishImgs = [...document.querySelectorAll(".studio .bg")];
+  document.getElementById("finishes").addEventListener("change", (e) => {
+    finishImgs.forEach((im) => im.classList.toggle("on", im.dataset.finish === e.target.value));
+  });
+
+  /* inside: rooms */
+  const notes = {
+    living: "A double-height room that opens to the pool, with travertine underfoot and walnut on the walls.",
+    majlis: "Low seating on three sides, a walnut and bronze screen, and space for the whole family.",
+    suite: "A quiet suite with a lit walnut headboard wall and a private terrace beyond the glass."
+  };
+  const roomImgs = [...document.querySelectorAll(".inside .bg")];
+  const tabs = [...document.querySelectorAll(".tabs button")];
+  const note = document.getElementById("room-note");
+  tabs.forEach((b) => b.addEventListener("click", () => {
+    tabs.forEach((t) => t.setAttribute("aria-pressed", String(t === b)));
+    roomImgs.forEach((im) => im.classList.toggle("on", im.dataset.room === b.dataset.room));
+    note.textContent = notes[b.dataset.room];
+  }));
+
+  /* estimate: indicative AED per sq ft by scope and finish level */
+  const RATES = { design: [30, 45, 65], fitout: [260, 380, 520], build: [700, 900, 1200] };
+  const SPLIT = {
+    design: [["Concept design", 25], ["Detailed design", 40], ["Drawings & approvals", 20], ["Site supervision", 15]],
+    fitout: [["Design", 10], ["MEP & lighting", 20], ["Finishes", 32], ["Joinery", 24], ["Furniture & styling", 14]],
+    build:  [["Design & approvals", 6], ["Structure", 32], ["MEP", 18], ["Facade & glazing", 12], ["Finishes", 22], ["Joinery & furniture", 10]]
+  };
+  const area = document.getElementById("area");
+  const fmtN = new Intl.NumberFormat("en-US");
+  function aed(v) {
+    if (v >= 1e6) return (v / 1e6).toFixed(v >= 1e7 ? 0 : 1) + "M";
+    return Math.round(v / 1e3) + "K";
+  }
+  function months(scope, a, lvl) {
+    if (scope === "design") return Math.round(2 + a / 5000 + lvl * 0.5);
+    if (scope === "fitout") return Math.round(3 + a / 1600 + lvl);
+    return Math.round(12 + a / 1200 + lvl * 1.5);
+  }
+  function estimate() {
+    const scope = document.querySelector('input[name="scope"]:checked').value;
+    const lvl = +document.querySelector('input[name="level"]:checked').value;
+    const a = +area.value;
+    const base = RATES[scope][lvl] * a;
+    document.getElementById("area-out").textContent = fmtN.format(a) + " sq ft";
+    document.getElementById("area-m2").textContent = fmtN.format(Math.round(a * 0.092903)) + " m²";
+    document.getElementById("budget").textContent = "AED " + aed(base * 0.92) + " – " + aed(base * 1.08);
+    const m = months(scope, a, lvl);
+    document.getElementById("months").textContent = m + " months";
+    const max = Math.max(...SPLIT[scope].map((s) => s[1]));
+    document.getElementById("bars").innerHTML = SPLIT[scope].map(([k, v]) =>
+      `<li><span>${k}</span><span class="track"><span class="fill" style="width:${(v / max) * 100}%"></span></span><span class="pct">${v}%</span></li>`
+    ).join("");
+  }
+  document.querySelector(".estimate").addEventListener("input", estimate);
+  estimate();
+
+  /* copy phone number */
+  const copy = document.getElementById("copy");
+  copy.addEventListener("click", () => {
+    const t = document.getElementById("num").textContent;
+    const done = () => { copy.textContent = "Copied"; setTimeout(() => (copy.textContent = "Copy"), 1600); };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(t).then(done).catch(() => selectNum());
+    } else selectNum();
+  });
+  function selectNum() {
+    const r = document.createRange(); r.selectNodeContents(document.getElementById("num"));
+    const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+  }
+})();
+</script>
+</body>
+</html>
